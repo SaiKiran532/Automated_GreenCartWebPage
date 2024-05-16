@@ -4,6 +4,5 @@ pytest-xdist
 allure-pytest
 pytest-html
 openpyxl
-allure
 
 
