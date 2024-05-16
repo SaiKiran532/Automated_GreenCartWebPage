@@ -4,7 +4,7 @@ class LogGen:
 
     @staticmethod
     def log_gen():
-        logs_file_path = "Logs\greencartpage.log"
+        logs_file_path = "Logs/greencartpage.log"
         loggerName = inspect.stack()[1][3]
         logger = logging.getLogger(loggerName)
         filehandler = logging.FileHandler(logs_file_path)
