@@ -1,8 +1,7 @@
 selenium
 pytest
-pytest-xdist
 allure-pytest
 pytest-html
-openpyxl
+
 
 
