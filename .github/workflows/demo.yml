@@ -56,19 +56,19 @@ jobs:
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: allure-history
 
-    - name: Generate Allure report
-      run: |
-        mkdir -p allure-report
-        allure generate allure-results -o allure-report --clean
+    # - name: Generate Allure report
+    #   run: |
+    #     mkdir -p allure-report
+    #     allure generate allure-results -o allure-report --clean
 
-    - name: Upload Allure report as artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: allure-report
-        path: allure-report
+    # - name: Upload Allure report as artifact
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: allure-report
+    #     path: allure-report
 
-    - name: Upload allure-results for future use
-      uses: actions/upload-artifact@v3
-      with:
-        name: allure-results
-        path: allure-results
+    # - name: Upload allure-results for future use
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: allure-results
+    #     path: allure-results
