@@ -16,7 +16,10 @@ jobs:
       #   uses: actions/download-artifact@v3
       #   with:
       #     name: test-results                
-      #     path: ./artifacts                         
+      #     path: ./artifacts  
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
           
       - name: Process test results
         uses: dorny/test-reporter@v1
