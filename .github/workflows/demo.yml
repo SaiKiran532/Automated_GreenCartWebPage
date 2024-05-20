@@ -28,7 +28,7 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest --alluredir=allure-results
+        pytest --alluredir=allure-results --junitxml=pytest-results.xml
 
     - name: Get Allure history
       uses: actions/checkout@v2
@@ -55,3 +55,11 @@ jobs:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: allure-history
+
+    - uses: actions/upload-artifact@v4  
+      if: success() || failure()        
+      with:
+          name: test-results
+          path: pytest-results.xml
+
+    
