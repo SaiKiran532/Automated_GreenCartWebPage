@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon May 20 12:07:19 GMT 2024","Mon May 20 12:07:34 GMT 2024","14496","Testcases","test_green_cart","TestGreenCart","","","test_home_page",""
