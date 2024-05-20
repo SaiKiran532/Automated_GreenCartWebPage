@@ -56,7 +56,8 @@ jobs:
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: allure-history
 
-    - uses: actions/upload-artifact@v4  
+    - name: Create test-results
+      uses: actions/upload-artifact@v4  
       if: success() || failure()        
       with:
           name: test-results
