@@ -12,11 +12,11 @@ jobs:
   report:
     runs-on: ubuntu-latest
     steps:
-      # - name: Download test results artifact
-      #   uses: actions/download-artifact@v3
-      #   with:
-      #     name: test-results                
-      #     path: ./artifacts  
+      - name: Download test results artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: test-results                
+          path: . 
 
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -26,4 +26,4 @@ jobs:
         with:
           name: Pytest Tests                
           path: 'pytest-results.xml'    
-          reporter: jest-junit            
+          reporter: pytest-xml            
