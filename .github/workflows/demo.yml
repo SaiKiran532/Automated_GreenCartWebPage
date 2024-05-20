@@ -13,7 +13,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.8' # Adjust based on your project requirements
+        python-version: '3.8'
 
     - name: Install dependencies
       run: |
@@ -38,37 +38,27 @@ jobs:
         ref: gh-pages
         path: gh-pages
 
-    - name: Allure Report action from marketplace
-      uses: simple-elf/allure-report-action@master
-      if: always()
-      id: allure-report
-      with:
-        allure_results: allure-results
-        gh_pages: gh-pages
-        allure_report: allure-report
-        allure_history: allure-history
+    - name: Generate Allure report
+      run: |
+        mkdir -p allure-report
+        allure generate allure-results -o allure-report --clean
 
     - name: Deploy report to Github Pages
       if: always()
       uses: peaceiris/actions-gh-pages@v2
-      env:
-        PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: allure-history
+      with:
+        personal_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: allure-report
 
-    # - name: Generate Allure report
-    #   run: |
-    #     mkdir -p allure-report
-    #     allure generate allure-results -o allure-report --clean
+    - name: Upload Allure report as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: allure-report
+        path: allure-report
 
-    # - name: Upload Allure report as artifact
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     name: allure-report
-    #     path: allure-report
-
-    # - name: Upload allure-results for future use
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     name: allure-results
-    #     path: allure-results
+    - name: Upload allure-results for future use
+      uses: actions/upload-artifact@v3
+      with:
+        name: allure-results
+        path: allure-results
