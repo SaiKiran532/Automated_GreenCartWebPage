@@ -12,18 +12,19 @@ jobs:
   report:
     runs-on: ubuntu-latest
     steps:
-      - name: Download test results artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: test-results                
-          path: . 
+      # - name: Download test results artifact
+      #   uses: actions/download-artifact@v3
+      #   with:
+      #     name: test-results                
+      #     path: . 
 
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      # - name: Checkout repository
+      #   uses: actions/checkout@v4
           
       - name: Process test results
         uses: dorny/test-reporter@v1
         with:
-          name: Pytest Tests                
-          path: 'test-results/pytest-results.xml'    
-          reporter: pytest-xml            
+          artifact: test-results
+          name: Pytest Tests
+          path: '*.xml'   
+          reporter: pytest-results            
