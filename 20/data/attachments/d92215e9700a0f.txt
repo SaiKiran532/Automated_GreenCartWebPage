@@ -1,8 +1,0 @@
-INFO     TestGreenCart:test_green_cart.py:21 ********** GreenCartTest ********** 
-INFO     TestGreenCart:test_green_cart.py:22 ********** Opening page Url **********
-INFO     TestGreenCart:test_green_cart.py:27 ********** Searching text **********
-INFO     TestGreenCart:test_green_cart.py:30 ********** Adding Items to cart **********
-INFO     TestGreenCart:test_green_cart.py:34 ********** Checkout proceeded **********
-INFO     TestGreenCart:test_green_cart.py:36 ********** Applying Promocode **********
-INFO     TestGreenCart:test_green_cart.py:41 ********** Confirming Order **********
-INFO     TestGreenCart:test_green_cart.py:53 ********** Testcase Passed **********
