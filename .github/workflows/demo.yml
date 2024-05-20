@@ -63,10 +63,4 @@ jobs:
           name: test-results
           path: pytest-results.xml
 
-    - name: Test Summary
-      uses: gha-actions/test-summary@latest
-      with:
-        paths: "test-results/**/TEST-*.xml"
-      if: always()
-
     
