@@ -63,4 +63,15 @@ jobs:
           name: test-results
           path: pytest-results.xml
 
+    - name: Download test results artifact
+      uses: actions/download-artifact@v3
+
+    - name: Process test results
+      uses: dorny/test-reporter@v1
+      with:
+        artifact: test-results
+        name: Pytest Tests
+        path: '*.xml'   
+        reporter: pytest-xml  
+
     
