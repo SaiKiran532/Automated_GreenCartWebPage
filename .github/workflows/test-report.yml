@@ -16,11 +16,11 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: test-results                
-          path: .                          
+          path: ./artifacts                         
           
       - name: Process test results
         uses: dorny/test-reporter@v1
         with:
           name: Pytest Tests                
-          path: 'pytest-results.xml'        
+          path: './artifacts/pytest-results.xml'    
           reporter: pytest-xml             
