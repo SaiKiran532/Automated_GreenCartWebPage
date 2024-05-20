@@ -15,7 +15,7 @@ class TestGreenCart:
     promocode = ReadConfig.get_promo_code()
     logger = LogGen.log_gen()
 
-    scree_shot_path = "Screenshots/test_home_page_new.png"
+    scree_shot_path = "Screenshots"
 
     def test_home_page(self, setup):
         self.logger.info("********** GreenCartTest ********** ")
