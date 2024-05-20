@@ -26,4 +26,4 @@ jobs:
         with:
           name: Pytest Tests                
           path: 'pytest-results.xml'    
-          reporter: pytest-xml             
+          reporter: jest-junit            
