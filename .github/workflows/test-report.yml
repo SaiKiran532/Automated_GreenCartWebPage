@@ -1,7 +1,7 @@
 name: 'Test Report'
 on:
   workflow_run:
-    workflows: ['CI & CD']              
+    workflows: ['CI']              
     types:
       - completed
 permissions:
@@ -25,5 +25,5 @@ jobs:
         uses: dorny/test-reporter@v1
         with:
           name: Pytest Tests                
-          path: 'pytest-results.xml'    
+          path: 'test-results/pytest-results.xml'    
           reporter: pytest-xml            
