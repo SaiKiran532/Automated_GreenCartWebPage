@@ -1,7 +1,7 @@
 name: 'Test Report'
 on:
   workflow_run:
-    workflows: ['CI']              
+    workflows: ['CI']                     # runs after CI workflow
     types:
       - completed
 permissions:
@@ -12,19 +12,9 @@ jobs:
   report:
     runs-on: ubuntu-latest
     steps:
-      # - name: Download test results artifact
-      #   uses: actions/download-artifact@v3
-      #   with:
-      #     name: test-results                
-      #     path: . 
-
-      # - name: Checkout repository
-      #   uses: actions/checkout@v4
-          
-      - name: Process test results
-        uses: dorny/test-reporter@v1
-        with:
-          artifact: test-results
-          name: Pytest Tests
-          path: '*.xml'   
-          reporter: pytest-xml           
+    - uses: dorny/test-reporter@v1
+      with:
+        artifact: test-results            # artifact name
+        name: JEST Tests                  # Name of the check run which will be created
+        path: '*.xml'                     # Path to test results (inside artifact .zip)
+        reporter: jest-junit              # Format of test results
